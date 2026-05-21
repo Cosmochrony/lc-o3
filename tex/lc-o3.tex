@@ -1,0 +1,338 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{doi}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Finite-$q$ Corrections to the Carnot Capacity Identification\\[4pt]
+\normalsize\itshape LC-O3 of the Lorentz--Capacity Sub-Programme}
+\author{J\'er\^ome Beau\\[2pt]
+\small Independent Researcher\\
+\small \texttt{jerome.beau@cosmochrony.org}}
+\date{2026}
+
+\begin{document}
+
+  \maketitle
+
+  \begin{abstract}
+    We close LC-O3, the finite-$q$ correction problem near the saturation boundary of the
+    Lorentz-capacity construction.
+    The quadratic Born--Infeld capacity identity
+    \[
+      B_n^2 + (F^\tau_n)^2 = 1
+    \]
+    is not corrected: it is exact by the definition $F^\tau_n := \sqrt{1-B_n^2}$, provided
+    $B_n$ is the exact finite-$q$ torus load.
+    The correction concerns the pre-saturation Carnot--Carath\'eodory parabolic
+    identification
+    \[
+      B_n^{\mathrm{parab}} = \frac{2n^2+2n+1}{q^2},
+    \]
+    which is exact only before cyclic folding, for $n \leq R := (q-1)/2$.
+    Beyond the folding boundary, writing $n = R+m$, the exact torus count gives
+    \[
+      B_n^{\mathrm{torus}} = \frac{q(2m+1)+2R^2-2m^2}{q^2},
+    \]
+    and the deviation from the parabolic Carnot formula is
+    \[
+      \Delta_q(n) := B_n^{\mathrm{parab}} - B_n^{\mathrm{torus}} = \frac{4m^2}{q^2}.
+    \]
+    In the macroscopic folded regime $n/q \to \alpha > 1/2$, the correction
+    $\Delta_q(n) \to 4(\alpha - 1/2)^2$ is finite and the parabolic identification
+    is not asymptotically valid.
+    In the pre-saturation and sublinear boundary regimes ($m/q \to 0$), the correction
+    vanishes and the Lorentz-capacity law is recovered exactly.
+    LC-O3 therefore identifies the finite-$q$ domain of validity of the Carnot
+    approximation without modifying the quadratic capacity law.
+  \end{abstract}
+
+  \medskip
+  \noindent\textbf{Keywords.}
+  finite-$q$ corrections; Carnot--Carath\'eodory identification; saturation boundary;
+  quadratic capacity law; torus folding; Born--Infeld admissibility; Cosmochrony.
+
+  \newpage
+  \tableofcontents
+
+  \newpage
+  \section{Introduction}
+    \label{sec:introduction}
+
+    The Lorentz-capacity sub-programme derives the temporal residual
+    $F^\tau_n = \sqrt{1-B_n^2}$ from the bounded Born--Infeld capacity budget of the
+    admissibility cascade on $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$.
+    Papers~\cite{Beau2026n} and~\cite{Beau2026tp} prove that the quadratic identity
+    \[
+      B_n^2 + (F^\tau_n)^2 = 1
+    \]
+    holds exactly for all $n < q/2$, using the Weil filling law $\Sigma^{\mathrm{tot}}_n =
+  1-B_n$ and the temporal residual map $F^\tau_n = P^{Q5b}_\tau \Sigma^{\mathrm{tot}}_n
+  = \sqrt{1-B_n^2}$.
+    This closes time dilation and the Lorentz factor identification.
+
+    The open problem LC-O3 (Section~7.2 of~\cite{Beau2026tp}) is the status of the
+    quadratic law and the Carnot capacity identification near the finite-$q$ saturation
+    boundary $n \simeq q/2$.
+
+    The resolution is a precise distinction between two statements:
+    \begin{enumerate}
+      \item The quadratic identity $B_n^2 + (F^\tau_n)^2 = 1$ is exact for every $n$, once
+      $B_n$ is the exact finite-$q$ torus load.
+      It requires no correction.
+      \item The parabolic Carnot formula $B_n^{\mathrm{parab}} = (2n^2+2n+1)/q^2$ is exact
+      only for $n \leq R := (q-1)/2$.
+      Beyond the folding boundary, it deviates from the exact torus count by
+      $\Delta_q(n) = 4m^2/q^2$ where $m = n-R$.
+    \end{enumerate}
+    Thus LC-O3 is a correction to the Carnot approximation, not to the capacity law.
+
+    Section~\ref{sec:pre-saturation} recalls the pre-saturation exactness.
+    Section~\ref{sec:torus-formula} derives the exact torus formula for $n \geq R$.
+    Section~\ref{sec:correction} proves the correction theorem.
+    Section~\ref{sec:domain} analyses the three asymptotic regimes.
+    Section~\ref{sec:recovery} states the asymptotic recovery corollary.
+
+  \section{Pre-saturation exactness}
+    \label{sec:pre-saturation}
+
+    Let $q$ be an odd prime and set $R := (q-1)/2$.
+    For $a \in \mathbb{Z}/q\mathbb{Z}$, define the cyclic distance $r(a) := \min(a \bmod q,
+  \, q - a \bmod q) \in \{0,1,\ldots,R\}$.
+    The BFS spatial coverage at depth $n$ is
+    \[
+      B_n^{\mathrm{torus}}
+      := \frac{1}{q^2}\,\bigl|\bigl\{(a,b) \in (\mathbb{Z}/q\mathbb{Z})^2
+      : r(a) + r(b) \leq n\bigr\}\bigr|.
+    \]
+
+    \begin{lemma}[Pre-saturation parabolic formula]
+      \label{lem:pre-saturation}
+      For $0 \leq n \leq R$, the torus count coincides with the unfolded Carnot diamond:
+      \[
+        B_n^{\mathrm{torus}} = B_n^{\mathrm{parab}} := \frac{2n^2+2n+1}{q^2}.
+      \]
+    \end{lemma}
+
+    \begin{proof}
+      For $n \leq R$, the diamond $\{(a,b) : r(a)+r(b) \leq n\}$ does not wrap around the
+      cyclic identifications in $(\mathbb{Z}/q\mathbb{Z})^2$.
+      Each element of the diamond has a unique pre-image in $\{0,\ldots,q-1\}^2$, so the
+      torus count equals the unfolded count $|D_n| = 2n^2+2n+1$,
+      which is the cardinality of the unfolded $\ell^1$ diamond of radius $n$ in
+      $\mathbb{Z}^2$.\qed
+    \end{proof}
+
+    By the Weil factorization~\cite{Beau2026n}, $\Sigma^{\mathrm{tot}}_n = 1 - B_n$ exactly.
+    The temporal residual map of~\cite{Beau2026tp} then gives
+    $F^\tau_n = \sqrt{\Sigma^{\mathrm{tot}}_n(2-\Sigma^{\mathrm{tot}}_n)} = \sqrt{1-B_n^2}$.
+    The identity $B_n^2 + (F^\tau_n)^2 = 1$ is exact for every $n$, not only in the
+    pre-saturation regime.
+    The pre-saturation lemma is needed for a different reason: to identify the regime where
+    $B_n = B_n^{\mathrm{parab}}$, i.e. where the Carnot formula may be used.
+
+  \section{Exact torus formula after cyclic folding}
+    \label{sec:torus-formula}
+
+    For $n > R$, the $\ell^1$ ball on $(\mathbb{Z}/q\mathbb{Z})^2$ wraps around the torus.
+
+    \begin{lemma}[Exact torus count after folding]
+      \label{lem:torus-formula}
+      For $n = R+m$ with $0 \leq m \leq R$, the exact torus capacity load is
+      \[
+        B_n^{\mathrm{torus}}
+        = \frac{q(2m+1) + 2R^2 - 2m^2}{q^2}.
+      \]
+    \end{lemma}
+
+    \begin{proof}
+      Write the count as
+      \[
+        \bigl|\bigl\{(a,b) : r(a)+r(b) \leq n\bigr\}\bigr|
+        = \sum_{k=0}^{R} \#\{a : r(a)=k\} \cdot \#\{b : r(b) \leq n-k\}.
+      \]
+      The single-coordinate counts are $\#\{a : r(a) = 0\} = 1$ and $\#\{a : r(a) = k\} = 2$
+      for $1 \leq k \leq R$; and $\#\{b : r(b) \leq j\} = \min(2j+1,\, q)$.
+
+      For $n = R+m$, the bound $n-k \geq R$ holds iff $k \leq m$, so
+      $\min(2(n-k)+1, q) = q$ for $k \leq m$ and $= 2(n-k)+1$ for $k > m$.
+      Splitting the sum at $k = m$:
+      \[
+        \bigl|\{r(a)+r(b)\leq n\}\bigr|
+        = q + 2mq + 2\sum_{k=m+1}^{R}(2(R+m-k)+1).
+      \]
+      Substituting $j = R - k$ (ranging from $R-m-1$ down to $0$):
+      \[
+        2\sum_{j=0}^{R-m-1}\!(2(m+j)+1)
+        = 2\bigl[2\cdot\tfrac{(R-m-1)(R-m)}{2} + (2m+1)(R-m)\bigr]
+        = 2(R^2-m^2).
+      \]
+      Therefore the total is $q(2m+1) + 2R^2 - 2m^2$, and dividing by $q^2$ gives the
+      stated formula.
+    \end{proof}
+
+    \begin{remark}[Endpoint verification]
+      \label{rem:endpoints}
+      At $m = 0$ ($n = R$): $B_R^{\mathrm{torus}} = (q + 2R^2)/q^2 = (2R^2+2R+1)/q^2 =
+      B_R^{\mathrm{parab}}$, confirming continuity at the folding boundary.
+      At $m = R$ ($n = q-1$): $B_{q-1}^{\mathrm{torus}} = (q(2R+1)+2R^2-2R^2)/q^2 =
+      q^2/q^2 = 1$, confirming that the whole horizontal torus is filled at the final depth.
+    \end{remark}
+
+  \section{The finite-$q$ correction}
+    \label{sec:correction}
+
+    \begin{theorem}[Finite-$q$ correction to the Carnot capacity profile]
+      \label{thm:correction}
+      For $n = R+m$ with $0 \leq m \leq R$, the deviation of the parabolic Carnot formula
+      from the exact torus count is
+      \[
+        \Delta_q(n) := B_n^{\mathrm{parab}} - B_n^{\mathrm{torus}} = \frac{4m^2}{q^2}.
+      \]
+    \end{theorem}
+
+    \begin{proof}
+      With $n = R+m$ and $q = 2R+1$, the parabolic numerator expands as
+      \[
+        2(R+m)^2+2(R+m)+1 = 2R^2+4Rm+2m^2+2R+2m+1.
+      \]
+      The torus numerator, using $q = 2R+1$, expands as
+      \[
+        q(2m+1)+2R^2-2m^2
+        = 2R^2+4Rm+2R+2m+1-2m^2.
+      \]
+      Their difference is $4m^2$, and dividing by $q^2$ gives $\Delta_q(n) = 4m^2/q^2$.
+    \end{proof}
+
+    \begin{remark}[Parabolic formula becomes unphysical]
+      \label{rem:unphysical}
+      Since $B_n^{\mathrm{torus}} \leq 1$ always, the correction formula implies that
+      $B_n^{\mathrm{parab}} > 1$ once $4m^2/q^2 > 1 - B_R^{\mathrm{parab}}$, i.e. for
+      sufficiently large $m$.
+      Table~\ref{tab:corrections} illustrates this for $q \in \{11, 13\}$: the parabolic
+      formula exceeds $1$ as soon as $n \geq R+3$ for $q = 11$ and $n \geq R+3$ for $q=13$.
+      This is the clearest manifestation that $B_n^{\mathrm{parab}}$ is not a valid load in
+      the folded regime.
+    \end{remark}
+
+    \begin{table}[h]
+      \centering
+      \caption{Parabolic vs.\ exact torus capacity load and correction $\Delta_q \cdot q^2 =
+      4m^2$, for $q = 11$ (left, $R = 5$) and $q = 13$ (right, $R = 6$).
+      A dagger ($\dagger$) marks entries where $B_n^{\mathrm{parab}} > 1$.}
+      \label{tab:corrections}
+      \smallskip
+      \begin{tabular}{rr @{\hspace{1.5em}} rr | rr @{\hspace{1.5em}} rr}
+        \toprule
+        \multicolumn{4}{c|}{$q = 11$} & \multicolumn{4}{c}{$q = 13$} \\
+        $n$ & $m$ & $B_n^{\mathrm{parab}}$ & $B_n^{\mathrm{torus}}$
+        & $n$ & $m$ & $B_n^{\mathrm{parab}}$ & $B_n^{\mathrm{torus}}$ \\
+        \midrule
+        5 & 0 & 0.504 & 0.504 & 6  & 0 & 0.503 & 0.503 \\
+        6 & 1 & 0.702 & 0.669 & 7  & 1 & 0.669 & 0.645 \\
+        7 & 2 & 0.934 & 0.802 & 8  & 2 & 0.858 & 0.763 \\
+        8 & 3 & $1.198^\dagger$ & 0.901 & 9 & 3 & $1.071^\dagger$ & 0.858 \\
+        9 & 4 & $1.496^\dagger$ & 0.967 & 10 & 4 & $1.308^\dagger$ & 0.929 \\
+        10 & 5 & $1.826^\dagger$ & 1.000 & 11 & 5 & $1.568^\dagger$ & 0.976 \\
+        &   &                 &       & 12 & 6 & $1.852^\dagger$ & 1.000 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+  \section{Domain of validity of the Carnot identification}
+    \label{sec:domain}
+
+    The correction $\Delta_q(n) = 4m^2/q^2$ determines three asymptotic regimes.
+
+    \paragraph{Pre-saturation regime.}
+      For $n \leq R$, $m = 0$ and $\Delta_q(n) = 0$.
+      The parabolic Carnot formula is exact.
+
+    \paragraph{Sublinear boundary layer.}
+      For $n = R + m$ with $m/q \to 0$,
+      \[
+        \Delta_q(n) = \frac{4m^2}{q^2} \to 0.
+      \]
+      The parabolic formula remains asymptotically valid in a sublinear neighbourhood of the
+      folding boundary.
+
+    \paragraph{Macroscopic folded regime.}
+      For $n/q \to \alpha > 1/2$, one has $m/q \to \alpha - 1/2$, and therefore
+      \[
+        \Delta_q(n) \to 4\!\left(\alpha - \tfrac{1}{2}\right)^2 > 0.
+      \]
+      The correction does not vanish.
+      The parabolic Carnot identification is not asymptotically valid in this regime.
+
+  \section{Asymptotic recovery of the Lorentz-capacity law}
+  \label{sec:recovery}
+
+  The exact Lorentz-capacity identity
+  \[
+    B_n^2 + (F^\tau_n)^2 = 1, \qquad F^\tau_n = \sqrt{1 - B_n^2},
+  \]
+  holds for every $n$ once $B_n = B_n^{\mathrm{torus}}$.
+  In the pre-saturation regime, $B_n = B_n^{\mathrm{parab}}$ and the Carnot
+  approximation may be used directly.
+  In the folded regime, the correct entry is
+  \[
+    B_n^{\mathrm{torus}} = B_n^{\mathrm{parab}} - \frac{4m^2}{q^2},
+  \]
+  and the temporal residual remains exactly $F^\tau_n = \sqrt{1-(B_n^{\mathrm{torus}})^2}$.
+
+  \begin{corollary}[Asymptotic Carnot recovery]
+    \label{cor:recovery}
+    The parabolic Carnot identification $B_n = B_n^{\mathrm{parab}}$ is asymptotically
+    recovered whenever $m/q \to 0$, i.e. whenever $n \leq R$ or $n = R + o(q)$.
+    It is not asymptotically recovered for $n/q \to \alpha > 1/2$.
+    The Lorentz-capacity identity $B_n^2 + (F^\tau_n)^2 = 1$ holds exactly in all
+    regimes with the exact torus load.
+  \end{corollary}
+
+  \begin{proof}
+    The first two claims follow from $\Delta_q(n) = 4m^2/q^2 \to 0$ iff $m/q \to 0$.
+    The third claim is the tautological identity $(B_n^{\mathrm{torus}})^2 +
+    (1-(B_n^{\mathrm{torus}})^2) = 1$.
+  \end{proof}
+
+  \section{Conclusion}
+  \label{sec:conclusion}
+
+  LC-O3 is closed by distinguishing two statements that were conflated in the open
+  problem.
+
+  The first statement is exact and receives no correction: the quadratic
+  Lorentz-capacity identity
+  \[
+    B_n^2 + (F^\tau_n)^2 = 1
+  \]
+  holds for every $n$, with $B_n$ the exact finite-$q$ torus load.
+
+  The second statement is approximate and has a precise domain of validity: the parabolic
+  Carnot formula $B_n^{\mathrm{parab}} = (2n^2+2n+1)/q^2$ is exact only for $n \leq
+  (q-1)/2$, and deviates from the exact torus count by $\Delta_q(n) = 4m^2/q^2$ for
+  $n = (q-1)/2 + m$.
+  The correction vanishes in the pre-saturation and sublinear boundary regimes, but
+  converges to $4(\alpha-\tfrac{1}{2})^2 > 0$ in the macroscopic folded regime
+  $n/q \to \alpha > 1/2$.
+
+  With LC-O1, LC-O2-O1, and LC-O3 now closed, the Lorentz-capacity sub-programme is
+  complete.
+  Time dilation, the light cone, Lorentz transformations and length contraction, the
+  gravitational capacity--metric bridge, and the finite-$q$ saturation domain of
+  validity are all established.
+
+  \newpage
+  \bibliographystyle{plain}
+  \bibliography{cosmochrony-bibliography}
+
+\end{document}
