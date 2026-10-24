@@ -7,7 +7,7 @@ This repository contains the source of the paper
 
 ## Overview
 
-The Lorentz-capacity sub-programme derives the temporal residual
+The Lorentz-capacity sub-programme obtains, conditionally, the temporal residual
 $F^\tau_n = \sqrt{1 - B_n^2}$ from the bounded Born-Infeld capacity budget of
 the admissibility cascade on $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$. The
 technical note `Beau2026n` and the temporal residual paper `Beau2026tp`
@@ -16,7 +16,7 @@ give, under the hypotheses stated there, the quadratic identity
 $$B_n^2 + (F^\tau_n)^2 = 1,$$
 
 whose reading as time dilation requires in addition the hypothesis [H-cone] of `Beau2026tp`. The
-problem, stated in Section 7.2 of `Beau2026tp`, is the status of the quadratic
+problem, listed in Section 7.2 of `Beau2026tp`, is the status of the quadratic
 law and of the parabolic Carnot capacity identification near the finite-$q$
 saturation boundary $n \simeq q/2$. The present paper closes this open problem
 (LC-O3).
@@ -53,10 +53,9 @@ law.
 
 ## Key features
 
-- **The quadratic capacity identity is unconditional.** It holds for every $n$
-  once $B_n$ is the exact torus load, by the very definition
-  $F^\tau_n = \sqrt{1 - B_n^2}$ supplied by the temporal residual map of
-  `Beau2026tp`.
+- **The quadratic capacity identity is tautological given $F^\tau_n := \sqrt{1 - B_n^2}$.** It holds for every
+  $n$ once $B_n$ is the exact torus load; its reading as the temporal residual of `Beau2026tp` inherits the
+  hypotheses of that paper.
 - **The Carnot identification has a precise domain of validity.** It is exact
   for $n \leq (q-1)/2$ (no cyclic folding) and asymptotically valid in any
   sublinear neighbourhood of the folding boundary.
@@ -89,7 +88,7 @@ LorCap -> TempProj -> LC-O2 -> LC-O2-O1
 | Paper | Role |
 |-------|------|
 | N (`Beau2026n`) | Weil factorisation $\Sigma^{\mathrm{tot}}_n = 1 - B_n$ |
-| TempProj (`Beau2026tp`) | Temporal residual map $F^\tau_n = \sqrt{1 - B_n^2}$; statement of LC-O3 (Section 7.2) |
+| TempProj (`Beau2026tp`) | Temporal residual map $F^\tau_n = \sqrt{1 - B_n^2}$; LC-O3 listed in Section 7.2 |
 
 ## Repository Contents
 
