@@ -11,11 +11,11 @@ The Lorentz-capacity sub-programme derives the temporal residual
 $F^\tau_n = \sqrt{1 - B_n^2}$ from the bounded Born-Infeld capacity budget of
 the admissibility cascade on $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$. The
 technical note `Beau2026n` and the temporal residual paper `Beau2026tp`
-established the quadratic identity
+give, under the hypotheses stated there, the quadratic identity
 
 $$B_n^2 + (F^\tau_n)^2 = 1,$$
 
-closing time dilation and the Lorentz factor identification. The remaining open
+whose reading as time dilation requires in addition the hypothesis [H-cone] of `Beau2026tp`. The
 problem, stated in Section 7.2 of `Beau2026tp`, is the status of the quadratic
 law and of the parabolic Carnot capacity identification near the finite-$q$
 saturation boundary $n \simeq q/2$. The present paper closes this open problem
@@ -63,10 +63,9 @@ law.
 - **Folded-regime correction is finite and explicit.** $\Delta_q(n) = 4m^2/q^2$
   is closed-form, and the parabolic formula even exceeds $1$ (becomes
   unphysical) for sufficiently large $m$ at fixed $q$.
-- **Closure of the Lorentz-capacity sub-programme.** With LC-O1, LC-O2-O1, and
-  LC-O3 now resolved, time dilation, the light cone, Lorentz transformations
-  and length contraction, the gravitational capacity-metric bridge, and the
-  finite-$q$ saturation domain of validity are all established.
+- **Scope.** The finite-$q$ domain concerns the spatial load only and uses no co-metric coefficient. The
+  kinematic statements of the sub-programme remain conditional on a supplied co-metric and on [H-cone], and
+  the gravitational capacity-metric bridge LC-O2-O1 is open (`Beau2026lco2o1`).
 
 ## Status
 
